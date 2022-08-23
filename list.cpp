@@ -8,6 +8,7 @@
 using namespace std;
 
 List::~List() {
+    sizeOfList = 0;
     Node* current = head;
     while( current != nullptr ) {
         Node* next = current->next;
