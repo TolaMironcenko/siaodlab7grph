@@ -1,9 +1,9 @@
 build:
-	clang++ -o main *.cpp
+	g++ -o main *.cpp
 
 run:
 	./main
 
 start:
-	clang++ -o main *.cpp
+	g++ -o main *.cpp
 	./main

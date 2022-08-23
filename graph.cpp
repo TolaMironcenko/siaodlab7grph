@@ -5,6 +5,7 @@
 #include "graph.h"
 #include <iostream>
 #include "list.h"
+#include <queue>
 
 using namespace std;
 
@@ -26,6 +27,10 @@ Graph::Graph(int k, int **lst) { // конструктор с заданными
 }
 
 Graph::~Graph() { // деструктор
+//    for(int i = 0; i < this->k; i++) {
+//     delete[] graphtable[i];
+//    }
+//    delete[] graphtable;
 }
 
 void Graph::wirte_graph_int() { // функция для забивания значений в граф
@@ -38,7 +43,24 @@ void Graph::wirte_graph_int() { // функция для забивания зн
 }
 
 void Graph::print_constr_tree() { // функция построения и вывода в терминал стягивающего дерева методом обхода в ширину
-	
+    int* Mark = new int[k](); // нулёвый массив отметок
+    queue<int> q; // очередь вершин (см. обход в ширину)
+    q.push(0); // начальная вершина произвольна, рассмотреть вариант её передачи в качестве аргумета (поставить аргумент по умолчанию)
+    Mark[0] = 1;
+    while (!q.empty()) {
+        int v = q.front();
+        q.pop();
+        for (int i = 0; i < graphtable[v].size(); ++i) {
+            int w = graphtable[v].readPos(i);
+            if (Mark[w] == 0) {
+                q.push(w);
+                Mark[w] = 1;
+                cout << "(" << v << "," << w << "), ";
+            }
+        }
+    }
+    cout << "\b\b \b";
+    delete[] Mark;
 }
 
 std::ostream &operator<<(std::ostream &out, const Graph graph1) { // переопределение метода cout
