@@ -27,7 +27,7 @@ Graph::Graph(int k, int **lst) { // конструктор с заданными
 }
 
 Graph::~Graph() { // деструктор
-    delete[] graphtable;
+    // delete[] graphtable;
 }
 
 void Graph::wirte_graph_int() { // функция для забивания значений в граф
