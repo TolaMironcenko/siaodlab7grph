@@ -76,7 +76,7 @@ void List::append(int value) {
 } // добавить в конец элемент
 
 int List::popend() {
-    int res = 0;
+    int res;
     if (last == nullptr) {
         cout << "Not allowed function POP for empty List" << endl;
         throw "Not allowed function POP for empty List";
@@ -175,7 +175,6 @@ void List::display() {
         cout << " --> nil";
         return;
     } else {
-        int i = 0;
         Node *print = head;
         while (print) {
             cout << " --> " << print->data;

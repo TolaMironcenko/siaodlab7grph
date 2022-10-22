@@ -3,7 +3,6 @@
 //
 
 #include "graph.h"
-#include <iostream>
 #include "list.h"
 #include <queue>
 
@@ -27,7 +26,7 @@ Graph::Graph(int k, int **lst) { // конструктор с заданными
 }
 
 Graph::~Graph() { // деструктор
-    // delete[] graphtable;
+//     delete[] this->graphtable;
 }
 
 void Graph::wirte_graph_int() { // функция для забивания значений в граф
@@ -56,7 +55,7 @@ void Graph::print_constr_tree() { // функция построения и вы
             }
         }
     }
-    cout << "\b\b \b";
+    cout << "\n";
     delete[] Mark;
 }
 
